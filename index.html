@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOI Group | Ingeniería Creativa</title>
+  <style>
+    :root {
+      --bg-color: #FAFAFA;
+      --card-bg: #FFFFFF;
+      --text-main: #111111;
+      --text-muted: #555555;
+      --accent-red: #E60012;
+      --border-color: #E5E7EB;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 20px 10px;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 60px 20px 50px;
+      background: var(--card-bg);
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    /* Marca de agua Kanji */
+    .kanji-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 14rem;
+      font-weight: 900;
+      color: rgba(0, 0, 0, 0.025);
+      user-select: none;
+      pointer-events: none;
+      white-space: nowrap;
+      letter-spacing: 10px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(230, 0, 18, 0.08);
+      color: var(--accent-red);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .red-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent-red);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent-red);
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    /* --- CONCEPTO / ORIGEN --- */
+    .concept-box {
+      background: #111111;
+      color: #FFFFFF;
+      padding: 35px 30px;
+      border-radius: 16px;
+      margin-bottom: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .concept-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background-color: var(--accent-red);
+    }
+
+    .concept-title {
+      font-size: 1.3rem;
+      color: var(--accent-red);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .concept-text {
+      font-size: 1.05rem;
+      color: #D1D5DB;
+      line-height: 1.7;
+    }
+
+    /* --- UNIDADES DE NEGOCIO --- */
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 30px;
+      letter-spacing: -0.5px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+      border-color: #D1D5DB;
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent-red);
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: var(--text-main);
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .card-btn:hover {
+      background-color: var(--accent-red);
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+      text-align: center;
+      padding: 30px 0 10px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero-title { font-size: 2.5rem; }
+      .kanji-bg { font-size: 8rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="kanji-bg">創意</div>
+      <div class="hero-badge">
+        <span class="red-dot"></span> SOI GROUP
+      </div>
+      <h1 class="hero-title">SOI</h1>
+      <p class="hero-subtitle">INGENIERÍA CREATIVA · 創意</p>
+      <p class="hero-tagline">"Ingenio capa por capa"</p>
+    </header>
+
+    <!-- ORIGEN Y FILOSOFÍA -->
+    <section class="concept-box">
+      <div class="concept-title">Origen y Filosofía</div>
+      <p class="concept-text">
+        Derivado del concepto japonés <strong>創意 (Sōi)</strong>, SOI representa la unión entre el ingenio creativo y la ingeniería de vanguardia. Nos estructuramos como un <strong>ecosistema de innovación</strong> que impulsa y desarrolla proyectos de fabricación aditiva, robótica e innovación tecnológica.
+      </p>
+    </section>
+
+    <!-- UNIDADES DE NEGOCIO -->
+    <section>
+      <h2 class="section-title">Nuestras Unidades de Negocio</h2>
+      
+      <div class="grid">
+        
+        <!-- CARD 1: SOI 3D -->
+        <article class="card">
+          <div>
+            <div class="card-tag">Fabricación Aditiva</div>
+            <h3 class="card-title">SOI 3D</h3>
+            <p class="card-desc">
+              Impresión 3D de alta precisión y prototipado rápido. Transformamos modelos digitales en piezas físicas funcionales bajo la premisa de <em>ingenio capa por capa</em>.
+            </p>
+          </div>
+          <a href="mailto:hola@soigroupcr.com" class="card-btn">
+            Cotizar Proyecto 3D &rarr;
+          </a>
+        </article>
+
+        <!-- CARD 2: ENG ROBOTICS -->
+        <article class="card">
+          <div>
+            <div class="card-tag">Robótica & Automatización</div>
+            <h3 class="card-title">ENG Robotics</h3>
+            <p class="card-desc">
+              Desarrollo de soluciones robóticas e ingeniería de precisión aplicadas al diseño, innovación y automatización industrial.
+            </p>
+          </div>
+          <a href="https://www.eng-robotics.com" target="_blank" rel="noopener" class="card-btn">
+            Visitar Sitio Web &rarr;
+          </a>
+        </article>
+
+        <!-- CARD 3: KIZUNA PET ID -->
+        <article class="card">
+          <div>
+            <div class="card-tag">Tecnología & Identificación</div>
+            <h3 class="card-title">Kizuna Pet ID</h3>
+            <p class="card-desc">
+              Conectando mascotas con sus familias mediante identificación inteligente y tecnología accesible para el cuidado animal.
+            </p>
+          </div>
+          <a href="https://www.kizunapetid.com" target="_blank" rel="noopener" class="card-btn">
+            Visitar Sitio Web &rarr;
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>© SOI Group — Todos los derechos reservados.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
